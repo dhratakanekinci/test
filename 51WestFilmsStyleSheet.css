@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior:smooth;
   }
   
   
@@ -104,15 +105,13 @@
   
   /* Work sectie */
   .work {
-    padding: 6rem 2rem;
     text-align: center;
   }
   
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+   
   }
   
   .card img {
@@ -261,7 +260,7 @@ font-size: 3em;
 
 
 .about {
-
+margin: 10%;
   color: #e5bc00;
   padding: 4rem 2rem;
   display: flex;
@@ -306,13 +305,68 @@ font-size: 3em;
 
   .content-about p {
     flex: unset;
+    font-size: 1.5em;
   }
 
   .content-about img {
-    max-width: 80%;
+    max-width: 90%;
   }
 }
 
-.work{
-  font-size: 3em;
+.work {
+  display: flex;
+  justify-content: center; /* centreer alles horizontaal */
+}
+
+.work .grid {
+  display: flex;
+  flex-wrap: wrap; /* laat ze netjes breken op kleine schermen */
+  justify-content: center; /* centreert de afbeeldingen */
+  align-items: center;
+  gap: 2rem; /* ruimte tussen kaarten */
+  padding: 4rem 2rem;
+
+}
+
+.work .card img {
+  width: 100%;
+  max-width: 40em; /* beperk de breedte */
+  border-radius: 1rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.work .card img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsief gedrag */
+@media (max-width: 768px) {
+  .work .grid {
+    flex-direction: column; /* onder elkaar op mobiel */
+  }
+}
+
+.work2 {
+
+  padding: 4rem 2rem;
+}
+
+.work2 .flex {
+  display: flex;
+  flex-direction: column; /* onder elkaar */
+  align-items: center;    /* horizontaal centreren */
+  gap: 2rem;              /* ruimte tussen de afbeeldingen */
+}
+
+.work2 .card img {
+
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.work2 .card img:hover {
+  transform: scale(1.03);
 }
