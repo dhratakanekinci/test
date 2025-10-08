@@ -1,0 +1,311 @@
+/* Algemene stijl */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: #e5bc00;
+    background: #0d0d0d;
+    line-height: 1.6;
+  }
+  
+  /* Navigatie */
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    font-weight: 500;
+  }
+
+
+
+  nav img {
+    height: 5em;
+    width: 10em;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #e5bc00;
+    font-weight: 1000;
+    transition: opacity 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    opacity: 0.6;
+  }
+  
+  /* Hero sectie */
+  .hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero h2 {
+    font-size: 3rem;
+    letter-spacing: 1px;
+  }
+  
+  .hero p {
+    margin-top: 0.5rem;
+    color: #555;
+  }
+  
+  .btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 1.6rem;
+    border: 1px solid #111;
+    color: #111;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #111;
+    color: #fff;
+  }
+  
+  /* About sectie */
+  .about {
+    padding: 6rem 2rem;
+    max-width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  /* Work sectie */
+  .work {
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .card:hover img {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* Responsiviteit */
+  @media (max-width: 768px) {
+    .hero h2 {
+      font-size: 2.2rem;
+    }
+  
+    .nav-links {
+      gap: 1rem;
+    }
+  }
+  
+
+/* Container met video */
+.video-bg {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Zelf het iframe */
+  .video-iframe {
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100%;
+    pointer-events: none;
+    border: none;
+  }
+  
+  /* Houdt video goed gecentreerd bij smalle schermen */
+  @media (max-aspect-ratio: 16/9) {
+    .video-iframe {
+      width: 100vw;
+      height: 56.25vw; /* 16:9 verhouding */
+    }
+  }
+  
+/* HAMBURGER ICON */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background: #e5bc00;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* HIDDEN CHECKBOX */
+#menu-toggle {
+  display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  /* Toon hamburger */
+  .menu-icon {
+    display: flex;
+  }
+
+  /* Verberg links standaard */
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    background: #111;
+    width: min(320px, 90%);
+    display: none;
+    text-align: center;
+    padding: 1rem 0.8rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    z-index: 10;
+  }
+
+  .nav-links li + li {
+    margin-top: 0.5rem;
+  }
+
+  /* TOGGLE: toon menu als checkbox gechecked is */
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+    animation: dropdown 0.25s ease forwards;
+  }
+
+  /* Hamburger -> X animatie */
+  #menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  #menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+  @keyframes dropdown {
+    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+}
+
+.content-about {
+  display: flex;       /* zorgt dat het op mobiel onder elkaar komt */
+  gap: 2rem;
+  align-items: center;     /* dit centreert tekst verticaal t.o.v. de image */
+  justify-content: center;
+}
+
+.content-about p,
+.content-about img {
+  flex: 0 0 50%;           /* 50% breedte voor desktop */
+  box-sizing: border-box;
+}
+
+.content-about img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 800px) {
+  .content-about {
+    flex-direction: column;   /* onder elkaar */
+    align-items: center;      /* centreren in het midden */
+    text-align: center;       /* tekst netjes gecentreerd */
+  }
+
+  .content-about p,
+  .content-about img {
+    flex: 0 0 100%;           /* volle breedte gebruiken */
+    max-width: 90%;           /* iets marge links/rechts */
+  }
+
+  .content-about img {
+    margin-top: 1.5rem;       /* ruimte tussen tekst en afbeelding */
+  }
+}
+
+/* Voor mobiel: items onder elkaar */
+@media (max-width: 768px) {
+  .content-about p,
+  .content-about img {
+    flex: 0 0 100%;
+  }
+  .content-about {
+    align-items: flex-start; /* tekst boven afbeelding op mobiel */
+  }
+}
+
+.about h2{
+font-size: 3em;
+  margin-bottom: 2em;
+}
+.about p{
+  font-size: 1.5em;
+}
+
+.work{
+  font-size: 3em;
+}
