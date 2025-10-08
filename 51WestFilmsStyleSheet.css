@@ -97,7 +97,7 @@
   /* About sectie */
   .about {
     padding: 6rem 2rem;
-    max-width: 90%;
+    max-width: 60%;
     margin: auto;
     text-align: center;
   }
@@ -294,7 +294,7 @@
     flex: 0 0 100%;
   }
   .content-about {
-    align-items: flex-start; /* tekst boven afbeelding op mobiel */
+    align-items: center; /* tekst boven afbeelding op mobiel */
   }
 }
 
